@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tv>
+  <channel id="Ligue1Plus">
+    <display-name>Ligue 1+</display-name>
+    <display-name>Ligue1Plus</display-name>
+    <icon src="https://ligue1plus.fr/favicon.ico"/>
+  </channel>
+  
+  <!-- Match individuel -->
+  <programme start="20250829184500 +0000" stop="20250829204500 +0000" channel="Ligue1Plus">
+    <title lang="fr">Ligue 1 - J3 - RC Lens vs Stade Brestois 29</title>
+    <desc lang="fr">Match de Ligue 1 - J3 - RC Lens reçoit Stade Brestois 29</desc>
+    <category lang="fr">Sport</category>
+    <category lang="fr">Football</category>
+    <category lang="fr">Ligue 1 - J3</category>
+    <credits>
+      <presenter>RC Lens</presenter>
+      <guest>Stade Brestois 29</guest>
+    </credits>
+    <episode-num system="original-air-date">2025-08-29</episode-num>
+    <rating system="MPAA">
+      <value>G</value>
+    </rating>
+  </programme>
+  
+  <!-- Programme Multiplex -->
+  <programme start="20250831151500 +0000" stop="20250831171500 +0000" channel="Ligue1Plus">
+    <title lang="fr">Ligue 1 - J3 - Multiplex</title>
+    <desc lang="fr">Multiplex : 1. Le Havre vs Nice 2. Monaco vs Strasbourg 3. Paris FC vs Metz</desc>
+    <category lang="fr">Sport</category>
+    <category lang="fr">Football</category>
+    <category lang="fr">Ligue 1 - J3</category>
+    <category lang="fr">Multiplex</category>
+    <credits>
+      <presenter>Le Havre vs Nice</presenter>
+      <presenter>Monaco vs Strasbourg</presenter>
+      <presenter>Paris FC vs Metz</presenter>
+    </credits>
+    <episode-num system="original-air-date">2025-08-31</episode-num>
+    <rating system="MPAA">
+      <value>G</value>
+    </rating>
+  </programme>
+</tv>

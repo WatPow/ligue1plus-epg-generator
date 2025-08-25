@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tv>
+  <channel id="Ligue1Plus">
+    <display-name>Ligue 1+</display-name>
+    <display-name>Ligue1Plus</display-name>
+    <icon src="https://ligue1plus.fr/favicon.ico"/>
+  </channel>
+  <programme start="20250829184500 +0000" stop="20250829204500 +0000" channel="Ligue1Plus">
+    <title lang="fr">Ligue 1 - J3 - Rc Lens vs Stade Brestois 29</title>
+    <desc lang="fr">Match de Ligue 1 - J3 - Rc Lens reçoit Stade Brestois 29</desc>
+    <category lang="fr">Sport</category>
+    <category lang="fr">Football</category>
+    <category lang="fr">Ligue 1 - J3</category>
+    <credits>
+      <presenter>Rc Lens</presenter>
+      <guest>Stade Brestois 29</guest>
+    </credits>
+    <episode-num system="original-air-date">2025-08-29</episode-num>
+    <rating system="MPAA">
+      <value>G</value>
+    </rating>
+  </programme>
+  <programme start="20250830170000 +0000" stop="20250830190000 +0000" channel="Ligue1Plus">
+    <title lang="fr">Ligue 1 - J3 - Fc Nantes vs Aj Auxerre</title>
+    <desc lang="fr">Match de Ligue 1 - J3 - Fc Nantes reçoit Aj Auxerre</desc>
+    <category lang="fr">Sport</category>
+    <category lang="fr">Football</category>
+    <category lang="fr">Ligue 1 - J3</category>
+    <credits>
+      <presenter>Fc Nantes</presenter>
+      <guest>Aj Auxerre</guest>
+    </credits>
+    <episode-num system="original-air-date">2025-08-30</episode-num>
+    <rating system="MPAA">
+      <value>G</value>
+    </rating>
+  </programme>
+  <programme start="20250830190500 +0000" stop="20250830210500 +0000" channel="Ligue1Plus">
+    <title lang="fr">Ligue 1 - J3 - Toulouse Fc vs Paris Saint-Germain</title>
+    <desc lang="fr">Match de Ligue 1 - J3 - Toulouse Fc reçoit Paris Saint-Germain</desc>
+    <category lang="fr">Sport</category>
+    <category lang="fr">Football</category>
+    <category lang="fr">Ligue 1 - J3</category>
+    <credits>
+      <presenter>Toulouse Fc</presenter>
+      <guest>Paris Saint-Germain</guest>
+    </credits>
+    <episode-num system="original-air-date">2025-08-30</episode-num>
+    <rating system="MPAA">
+      <value>G</value>
+    </rating>
+  </programme>
+  <programme start="20250831130000 +0000" stop="20250831150000 +0000" channel="Ligue1Plus">
+    <title lang="fr">Ligue 1 - J3 - Angers Sco vs Stade Rennais Fc</title>
+    <desc lang="fr">Match de Ligue 1 - J3 - Angers Sco reçoit Stade Rennais Fc</desc>
+    <category lang="fr">Sport</category>
+    <category lang="fr">Football</category>
+    <category lang="fr">Ligue 1 - J3</category>
+    <credits>
+      <presenter>Angers Sco</presenter>
+      <guest>Stade Rennais Fc</guest>
+    </credits>
+    <episode-num system="original-air-date">2025-08-31</episode-num>
+    <rating system="MPAA">
+      <value>G</value>
+    </rating>
+  </programme>
+  <programme start="20250831151500 +0000" stop="20250831171500 +0000" channel="Ligue1Plus">
+    <title lang="fr">Ligue 1 - J3 - Multiplex</title>
+    <desc lang="fr">Multiplex : 1. Havre Athletic Club vs Ogc Nice 2. As Monaco vs Rc Strasbourg Alsace 3. Paris Fc vs Fc Metz</desc>
+    <category lang="fr">Sport</category>
+    <category lang="fr">Football</category>
+    <category lang="fr">Ligue 1 - J3</category>
+    <credits>
+      <presenter>Havre Athletic Club vs Ogc Nice</presenter>
+      <presenter>As Monaco vs Rc Strasbourg Alsace</presenter>
+      <presenter>Paris Fc vs Fc Metz</presenter>
+    </credits>
+    <category lang="fr">Multiplex</category>
+    <episode-num system="original-air-date">2025-08-31</episode-num>
+    <rating system="MPAA">
+      <value>G</value>
+    </rating>
+  </programme>
+  <programme start="20250831184500 +0000" stop="20250831204500 +0000" channel="Ligue1Plus">
+    <title lang="fr">Ligue 1 - J3 - Olympique Lyonnais vs Olympique De Marseille</title>
+    <desc lang="fr">Match de Ligue 1 - J3 - Olympique Lyonnais reçoit Olympique De Marseille</desc>
+    <category lang="fr">Sport</category>
+    <category lang="fr">Football</category>
+    <category lang="fr">Ligue 1 - J3</category>
+    <credits>
+      <presenter>Olympique Lyonnais</presenter>
+      <guest>Olympique De Marseille</guest>
+    </credits>
+    <episode-num system="original-air-date">2025-08-31</episode-num>
+    <rating system="MPAA">
+      <value>G</value>
+    </rating>
+  </programme>
+</tv>

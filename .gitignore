@@ -71,7 +71,6 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
-*.xml
 *.log
 temp/
 output/
