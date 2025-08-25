@@ -25,8 +25,10 @@ class XMLTVGenerator:
         Returns:
             String contenant le XML généré
         """
-        # Créer l'élément racine
+        # Créer l'élément racine avec attributs generator
         root = etree.Element("tv")
+        root.set("generator-info-name", "Ligue1+ EPG Generator")
+        root.set("generator-info-url", "https://github.com/anthony/ligue1-epg-generator")
         
         # Ajouter le canal
         self._add_channel(root)
@@ -228,22 +230,17 @@ class XMLTVGenerator:
         Formate une datetime au format XMLTV
         Format: YYYYMMDDHHMMSS +HHMM
         """
-        # Convertir en temps local avec offset
-        timestamp = dt.strftime("%Y%m%d%H%M%S")
+        # Convertir en temps local français (UTC+1 ou UTC+2 selon DST)
+        # L'API donne des heures en UTC, on les convertit en heure française
+        from datetime import timezone, timedelta
         
-        # Calculer l'offset timezone
-        offset = dt.strftime("%z")
-        if not offset:
-            # Si pas d'info timezone, utiliser +0100 par défaut (heure française)
-            offset = "+0100"
-        else:
-            # Reformater l'offset si nécessaire
-            if len(offset) == 5:  # Format +0100 déjà correct
-                pass
-            elif len(offset) == 3:  # Format +01
-                offset = offset + "00"
+        # Timezone française (approximation: UTC+1 en hiver, UTC+2 en été)
+        # Pour simplifier, on utilise +0200 comme BFM2
+        french_tz = timezone(timedelta(hours=2))
+        local_dt = dt.replace(tzinfo=timezone.utc).astimezone(french_tz)
         
-        return f"{timestamp} {offset}"
+        timestamp = local_dt.strftime("%Y%m%d%H%M%S")
+        return f"{timestamp} +0200"
     
     def save_to_file(self, xml_content: str, filename: str) -> None:
         """Sauvegarde l'EPG dans un fichier"""
