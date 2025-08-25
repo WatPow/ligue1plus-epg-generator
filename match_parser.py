@@ -95,10 +95,13 @@ class MatchParser:
             
             # Créer le titre et la description
             championship_info = self._get_championship_info(match_data)
-            title = f"{home_team} vs {away_team}"
+            base_title = f"{home_team} vs {away_team}"
             
             if championship_info:
-                title = f"{championship_info} - {title}"
+                base_title = f"{championship_info} - {base_title}"
+            
+            # Ajouter un préfixe selon le statut temporel
+            title = self._add_temporal_prefix(base_title, start_time, match_data)
             
             description = self._create_description(match_data, home_team, away_team, championship_info)
             
@@ -157,3 +160,49 @@ class MatchParser:
         description_parts.append(f"{home_team} reçoit {away_team}")
         
         return " - ".join(description_parts)
+    
+    def _add_temporal_prefix(self, base_title: str, match_time: datetime, match_data: Dict[str, Any]) -> str:
+        """
+        Ajoute un préfixe au titre selon le statut temporel du match
+        
+        Args:
+            base_title: Titre de base du match
+            match_time: Heure du match
+            match_data: Données du match pour vérifier le statut live
+        
+        Returns:
+            Titre avec préfixe approprié
+        """
+        from datetime import datetime, timezone
+        
+        # Vérifier si le match est en direct
+        is_live = match_data.get('isLive', False)
+        period = match_data.get('period', 'preMatch')
+        
+        if is_live or period == 'live':
+            # Match en direct - pas de préfixe
+            return base_title
+        
+        # Calculer la différence avec maintenant (en UTC)
+        now = datetime.now(timezone.utc)
+        match_utc = match_time.replace(tzinfo=timezone.utc)
+        time_diff = match_utc - now
+        
+        if period == 'postMatch' or time_diff.total_seconds() < -7200:  # Plus de 2h passées
+            # Match terminé
+            return f"[TERMINÉ] {base_title}"
+        elif time_diff.total_seconds() < 0:
+            # Match commencé mais pas marqué live (problème API)
+            return base_title
+        elif time_diff.total_seconds() < 3600:  # Moins d'1h
+            # Match très proche
+            return f"[IMMINENT] {base_title}"
+        elif time_diff.days == 0:
+            # Match aujourd'hui
+            return f"[AUJOURD'HUI] {base_title}"
+        elif time_diff.days <= 1:
+            # Match demain
+            return f"[DEMAIN] {base_title}"
+        else:
+            # Match à venir
+            return f"[PROCHAIN MATCH] {base_title}"

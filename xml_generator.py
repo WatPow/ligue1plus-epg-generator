@@ -137,7 +137,10 @@ class XMLTVGenerator:
         for match in matches:
             match_list.append(f"{match.home_team} vs {match.away_team}")
         
-        title = f"{championship} - Multiplex"
+        base_title = f"{championship} - Multiplex"
+        
+        # Ajouter un préfixe temporel pour le multiplex aussi
+        title = self._add_multiplex_temporal_prefix(base_title, start_time)
         
         # Description détaillée
         description_parts = ["Multiplex :"]
@@ -157,6 +160,38 @@ class XMLTVGenerator:
             'home_team': None,  # Pas applicable pour multiplex
             'away_team': None   # Pas applicable pour multiplex
         }
+    
+    def _add_multiplex_temporal_prefix(self, base_title: str, match_time: datetime) -> str:
+        """
+        Ajoute un préfixe temporel pour les multiplex
+        
+        Args:
+            base_title: Titre de base du multiplex
+            match_time: Heure du multiplex
+        
+        Returns:
+            Titre avec préfixe approprié
+        """
+        from datetime import datetime, timezone
+        
+        # Calculer la différence avec maintenant
+        now = datetime.now(timezone.utc)
+        match_utc = match_time.replace(tzinfo=timezone.utc)
+        time_diff = match_utc - now
+        
+        if time_diff.total_seconds() < -7200:  # Plus de 2h passées
+            return f"[TERMINÉ] {base_title}"
+        elif time_diff.total_seconds() < 0:
+            # En cours
+            return base_title
+        elif time_diff.total_seconds() < 3600:  # Moins d'1h
+            return f"[IMMINENT] {base_title}"
+        elif time_diff.days == 0:
+            return f"[AUJOURD'HUI] {base_title}"
+        elif time_diff.days <= 1:
+            return f"[DEMAIN] {base_title}"
+        else:
+            return f"[PROCHAIN MULTIPLEX] {base_title}"
     
     def _add_programme_element(self, root: etree.Element, programme_data: Dict[str, Any]) -> None:
         """Ajoute un programme (match ou multiplex) à l'EPG"""
